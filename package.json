@@ -1,0 +1,20 @@
+{
+  "name": "poultry-competition-platform",
+  "private": true,
+  "workspaces": [
+    "apps/frontend",
+    "apps/backend"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev --workspace apps/frontend\" \"npm run start:dev --workspace apps/backend\"",
+    "dev:frontend": "npm run dev --workspace apps/frontend",
+    "dev:backend": "npm run start:dev --workspace apps/backend",
+    "build": "npm run build --workspace apps/frontend && npm run build --workspace apps/backend",
+    "lint": "npm run lint --workspaces",
+    "format": "npm run format --workspace apps/backend",
+    "test": "npm run test --workspace apps/backend"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
